@@ -16,6 +16,7 @@ EXPOSE 9000
 COPY . /var/www/html
 COPY init.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/init.sh
+RUN chmod 777 -R /var/www/html/storage
 RUN composer install
 RUN npm install && npm run build
 ENTRYPOINT ["init.sh"]
